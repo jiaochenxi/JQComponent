@@ -55,6 +55,9 @@
                 self.clickItem(e, self)
             });
             this.callback();
+            $(window).on('resize', function(e){
+                self.rePos(e, self);
+            });
         }, eleRender: function() {
             var pEle = $('<div></div>').appendTo($('body'));
             pEle.css({
@@ -85,7 +88,16 @@
                 top: y + btn.height(),
             });
             self.dropMenuEle.show();
-        }
+        }, rePos: function(e, self) {
+            if(self.dropMenuEle.css('display') === 'none') return;
+            var btn = self.$element.find('button');
+            var x = btn.offset().left;
+            var y = btn.offset().top;
+            self.dropMenuEle.find('.dropdown-menu').css({
+                left: x,
+                top: y + btn.height(),
+            });
+        },
     };
 
 
