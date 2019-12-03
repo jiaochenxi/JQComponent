@@ -86,6 +86,7 @@
             self.dropMenuEle.find('.dropdown-menu').css({
                 left: x,
                 top: y + btn.height(),
+                position: 'absolute',
             });
             self.dropMenuEle.show();
         }, rePos: function(e, self) {
